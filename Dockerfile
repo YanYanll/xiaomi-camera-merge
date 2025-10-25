@@ -26,6 +26,9 @@ RUN apt-get update && apt-get install -y \
     yasm \
     unzip \
     # 安装FFmpeg和依赖
+	# Add ffmpeg PPA and update ffmpeg to the latest version
+    && add-apt-repository ppa:jonathonf/ffmpeg-4 \
+    && apt-get update \
     && apt-get install -y ffmpeg \
     # 清理不再需要的包
     && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
